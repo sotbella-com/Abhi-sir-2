@@ -1,0 +1,358 @@
+{
+    "header": {
+        "Logo": [
+            {
+                "type": "image/png",
+                "title": "Sotbella",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/sotbella-logo.png",
+                "alt": "",
+                "href": ""
+            }
+        ]
+    },
+    "homePage": {
+        "NEW-IN": [
+            {
+                "type": "video/mp4",
+                "title": "LATEST ARRIVALS",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/banner-video.mp4",
+                "alt": "",
+                "href": "category/latest-arrivals"
+            },
+            {
+                "type": "video/mp4",
+                "title": "BACK IN STOCK",
+                "alt": "",
+                "href": "category/back-in-stock",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/banner-vid.mp4"
+            },
+            {
+                "type": "video/mp4",
+                "title": "TRENDING NOW",
+                "alt": "",
+                "href": "category/trending-now",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/banner-vid-2.mp4"
+            }
+        ],
+        "Best-Seller": [
+            {
+                "type": "image/webp",
+                "title": "BEST SELLERS",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/Sotbella%5Fside1.webp",
+                "alt": "",
+                "href": "/category/best-sellers"
+            },
+            {
+                "type": "image/webp",
+                "title": "SALE PROMOTIONS",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/Sotbella%5Fside1.webp",
+                "alt": "",
+                "href": "/category/sale-promotions"
+            }
+        ],
+        "Shop-by-Category": [
+            {
+                "type": "video/mp4",
+                "title": "DRESSES",
+                "alt": "",
+                "href": "/category/dresses",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/shop-by-catgory-2.mp4"
+            },
+            {
+                "type": "image/webp",
+                "title": "CO-ORDS SETS",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/Sotbella%5Fside1.webp",
+                "alt": "",
+                "href": "/category/co-ords-sets"
+            },
+            {
+                "type": "image/avif",
+                "title": "TOPS & TEES",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/catagories-1.avif",
+                "alt": "",
+                "href": "/category/tops-tees"
+            },
+            {
+                "title": "SHIRTS",
+                "alt": "",
+                "href": "/category/shirts",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/shop-by-catgory.mp4",
+                "type": "video/mp4"
+            },
+            {
+                "type": "image/webp",
+                "title": "TROUSERS & JEANS",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/Sotbella%5Fside1.webp",
+                "alt": "",
+                "href": "/category/trousers-jeans"
+            },
+            {
+                "type": "image/avif",
+                "title": "SKIRTS & SHORTS",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/catagories-1.avif",
+                "alt": "",
+                "href": "/category/skirts-shorts"
+            }
+        ],
+        "Explore-All-Styles": [
+            {
+                "title": "EXPLORE ALL STYLES",
+                "alt": "",
+                "href": "/category/explore-all-styles",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/banner-video.mp4",
+                "type": "video/mp4"
+            }
+        ],
+        "The-Style-Edit": [
+            {
+                "title": "STATEMENT PIECES",
+                "alt": "",
+                "href": "/category/statement-pieces",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/banner-video.mp4",
+                "type": "video/mp4"
+            },
+            {
+                "type": "image/webp",
+                "title": "EVERYDAY ESSENTIALS",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/Sotbella%5Fside1.webp",
+                "alt": "",
+                "href": "/category/everyday-essentials"
+            },
+            {
+                "title": "CELEBRITY INPIRED",
+                "alt": "",
+                "href": "/category/celebrity-inspired",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/banner-vid-2.mp4",
+                "type": "video/mp4"
+            },
+            {
+                "type": "image/webp",
+                "title": "BEST SELLERS",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/catagories-1.avif",
+                "alt": "",
+                "href": "/category/best-sellers"
+            }
+        ],
+        "Style-by-Color": [
+            {
+                "type": "image/webp",
+                "title": "BLACK",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/Sotbella%5Fside1.webp",
+                "alt": "",
+                "href": "/category/black"
+            },
+            {
+                "type": "image/avif",
+                "title": "PINK",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/catagories-1.avif",
+                "alt": "",
+                "href": "/category/pink"
+            },
+            {
+                "type": "image/webp",
+                "title": "WHITE",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/Sotbella%5Fside1.webp",
+                "alt": "",
+                "href": "/category/white"
+            },
+            {
+                "type": "image/avif",
+                "title": "BLUE",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/catagories-1.avif",
+                "alt": "",
+                "href": "/category/blue"
+            },
+            {
+                "type": "image/webp",
+                "title": "RED",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/Sotbella%5Fside1.webp",
+                "alt": "",
+                "href": "/category/red"
+            },
+            {
+                "type": "image/avif",
+                "title": "GREEN",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/catagories-1.avif",
+                "alt": "",
+                "href": "/category/green"
+            },
+            {
+                "type": "image/webp",
+                "title": "GRAY",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/Sotbella%5Fside1.webp",
+                "alt": "",
+                "href": "/category/gray"
+            },
+            {
+                "type": "image/avif",
+                "title": "YELLOW",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/catagories-1.avif",
+                "alt": "",
+                "href": "/category/yellow"
+            },
+            {
+                "type": "image/webp",
+                "title": "MULTI",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/Sotbella%5Fside1.webp",
+                "alt": "",
+                "href": "/category/multi"
+            },
+            {
+                "type": "image/avif",
+                "title": "ORANGE",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/catagories-1.avif",
+                "alt": "",
+                "href": "/category/orange"
+            },
+            {
+                "type": "image/webp",
+                "title": "BEIGE",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/Sotbella%5Fside1.webp",
+                "alt": "",
+                "href": "/category/beige"
+            },
+            {
+                "type": "image/avif",
+                "title": "SILVER",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/catagories-1.avif",
+                "alt": "",
+                "href": "/category/silver"
+            }
+        ],
+        "Your-Style-Your-Story": [
+            {
+                "title": "",
+                "alt": "",
+                "href": "",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/banner-vid-2.mp4",
+                "type": "video/mp4"
+            },
+            {
+                "title": "",
+                "alt": "",
+                "href": "",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/banner-video.mp4",
+                "type": "video/mp4"
+            },
+            {
+                "title": "",
+                "alt": "",
+                "href": "",
+                "link": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella_in-Library/default/banner-vid.mp4",
+                "type": "video/mp4"
+            }
+        ]
+    },
+    "footer": {
+        "SHOP": [
+            {
+                "label": "New In",
+                "href": "/category/new_in"
+            },
+            {
+                "label": "Shop by Category",
+                "href": "/category/shop_by_category"
+            },
+            {
+                "label": "Occasion Wear",
+                "href": "/category/occasion_wear"
+            },
+            {
+                "label": "Fabric Edit",
+                "href": "/category/fabric_edit"
+            },
+            {
+                "label": "The Style Edit",
+                "href": "/category/the_style_edit"
+            },
+            {
+                "label": "Style by Color",
+                "href": "/category/style_by_color"
+            }
+        ],
+        "COMPANY": [
+            {
+                "label": "About Us",
+                "href": "/aboutus"
+            },
+            {
+                "label": "Contact Us",
+                "href": "/contactus"
+            },
+            {
+                "label": "Careers",
+                "href": "/career"
+            },
+            {
+                "label": "Testimonial",
+                "href": "/testimonial"
+            }
+        ],
+        "LEGAL": [
+            {
+                "label": "Privacy Policy",
+                "href": "/privacypolicy"
+            },
+            {
+                "label": "Terms & Conditions",
+                "href": "/terms"
+            },
+            {
+                "label": "Cookies",
+                "href": "/cookies"
+            },
+            {
+                "label": "Shipping & Delivery",
+                "href": "/shippingpolicy"
+            },
+            {
+                "label": "Retun & Refund",
+                "href": "/returnrefundpolicy"
+            }
+        ],
+        "CUSTOMER CARE": [
+            {
+                "label": "Track Order",
+                "href": "/trackorder"
+            },
+            {
+                "label": "Retun & Exchange",
+                "href": "/returnexchange"
+            },
+            {
+                "label": "FAQs",
+                "href": "/faq"
+            },
+            {
+                "label": "Size Guide",
+                "href": "/sizeguide"
+            }
+        ],
+        "NEWSLETTER SIGNUP": [
+            {
+                "label": "Subscribe for new arrivals & exclusive access.",
+                "href": ""
+            },
+            {
+                "label": "[Subscribe & Save 10%]",
+                "href": ""
+            },
+            {
+                "label": "WANT TO COLLABORATE WITH US?",
+                "href": "/collaborate"
+            }
+        ],
+        "Download Our App": [
+            {
+                "label": "App Store",
+                "href": "",
+                "link": "https://sfcc.sotbella360.com/on/demandware.static/-/Sites-sotbella_in-Library/default/Appstore.png"
+            },
+            {
+                "label": "Google Play",
+                "href": "",
+                "link": "https://sfcc.sotbella360.com/on/demandware.static/-/Sites-sotbella_in-Library/default/Gplay.webp"
+            }
+        ]
+    }
+}

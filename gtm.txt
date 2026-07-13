@@ -1,0 +1,188 @@
+Unified Frontend Data Layer Contract
+(All Events • Product Info • User Info • CAPI‑Ready)
+Audience: Frontend Engineering Team
+Applies to , SFCC, Custom Web
+Consumers: GTM (Web + Server), Meta Pixel, Meta CAPI, Google Ads, GA4
+
+1. Why this document exists
+We need one consistent data layer structure that:
+Carries complete product + user context for every event
+Is safe for Meta CAPI deduplication
+Keeps hashing responsibility inside GTM, not frontend
+This document is the single source of truth. Any deviation will break server‑side tracking later.
+
+2. Non‑negotiable rules (read carefully)
+Frontend sends RAW data only
+❌ No SHA‑256 hashing
+❌ No Meta / Google API calls
+GTM owns hashing & identity mapping
+Email, phone, names → hashed in GTM
+Every event MUST contain ``
+Generated on frontend using crypto.randomUUID()
+Never regenerated later
+User info is included for every event
+Same structure
+Same keys
+Allowed because GTM is the only consumer
+This structure is the contract
+Do not rename keys
+Do not nest differently per event
+
+3. Required Global Shape (ALL EVENTS)
+Every dataLayer.push() MUST follow this top‑level shape:
+{
+  event: '<event_name>',
+  event_id: '<uuid>',
+  ecommerce: { ... },
+  userDetails: { ... },
+  page: { ... },
+  timestamp: <number>
+}
+
+4. User Information Object (RAW ONLY)
+Always include `** if user is known.** If user is anonymous, setuserDetails: null`.
+userDetails: {
+  user_id: 151,                  // internal ID or null
+  email: 'user@email.com',        // raw
+  phone: '+9717806919',           // raw, with country code
+  first_name: 'Shubham',
+  last_name: 'Sinha',
+
+  address: {
+    street: '20/545 Dakshinpuri',
+    city: 'New Delhi',
+    state: 'Delhi',
+    country: 'IN',                // ISO‑2 only
+    postal_code: ''
+  }
+}
+Rules
+❌ No hashing here
+❌ No _fbp / _fbc here
+❌ No derived fields
+
+5. Ecommerce Object (ALL PRODUCT EVENTS)
+ecommerce: {
+  currency: 'Rs.',
+  value: 656,
+
+  items: [
+    {
+      item_id: 'ST-1319XS',
+      item_name: 'A‑LINE BUTTON UP BEIGE DRESS WITH BELT',
+      item_category: 'DRESS',
+      item_variant: 'XS',
+      price: 656,
+      quantity: 1
+    }
+  ]
+}
+Rules
+items[] must ALWAYS be an array
+price and quantity must be numbers
+currency must be ISO‑4217 (INR, Rs., USD)
+
+6. Page Context (ALL EVENTS)
+page: {
+  url: window.location.href,
+  title: document.title
+}
+
+7. Timestamp
+timestamp: Date.now() // milliseconds only
+
+8. Event‑Specific Examples
+8.1 View Item
+window.dataLayer.push({
+  event: 'view_item',
+  event_id: crypto.randomUUID(),
+
+  ecommerce: { ... },
+  userDetails: { ... },
+  page: { url: location.href, title: document.title },
+  timestamp: Date.now()
+});
+
+8.2 Add to Cart
+window.dataLayer.push({
+  event: 'add_to_cart',
+  event_id: crypto.randomUUID(),
+
+  ecommerce: { ... },
+  userDetails: { ... },
+  page: { url: location.href, title: document.title },
+  timestamp: Date.now()
+});
+
+8.3 Begin Checkout
+window.dataLayer.push({
+  event: 'begin_checkout',
+  event_id: crypto.randomUUID(),
+
+  ecommerce: { ... },
+  userDetails: { ... },
+  page: { url: location.href, title: document.title },
+  timestamp: Date.now()
+});
+
+8.4 Purchase (CRITICAL)
+window.dataLayer.push({
+  event: 'purchase',
+  event_id: crypto.randomUUID(),
+
+  ecommerce: {
+    transaction_id: 'ORDER_12345',
+    currency: 'Rs.',
+    value: 1312,
+    items: [ ... ]
+  },
+
+  userDetails: { ... },
+  page: { url: location.href, title: document.title },
+  timestamp: Date.now()
+});
+⚠️ This event_id MUST be sent to backend (SFCC / API).
+
+9. What GTM Will Do (Frontend MUST NOT)
+GTM responsibilities:
+Read userDetails.*
+Hash identity (SHA‑256)
+Read _fbp / _fbc from cookies
+Attach identity to every event automatically
+Fire:
+Meta Pixel
+Meta CAPI
+Google Ads
+GA4
+Frontend must NOT:
+Hash data
+Generate Meta identifiers
+Call Meta CAPI
+
+10. Why this works
+SFCC‑compatible
+CAPI dedup‑safe
+GTM‑friendly
+Backend‑ready
+
+11. One‑paragraph summary for engineers
+Every frontend event must include product context and raw user context in a fixed structure. Frontend never hashes data and never calls ad APIs. GTM is responsible for hashing, attribution, and server‑side forwarding. The event_id generated on frontend is the single deduplication key across browser and server.
+
+12. Final warning
+If you:
+change key names
+hash on frontend
+omit event_id
+You will break Meta CAPI deduplication and server‑side attribution.
+This contract is final.
+
+
+
+
+
+
+Meta pixel id : 791536550066080
+
+Meta pixel token: 
+
+EAAEqvdmAvEMBQKZAvMZA8lpTOZB3yMbSrRLM5RovYcmD4dgULyPo6WhTkRLEvLvIWfXcr67Let981WTMXAbRkwXy3J3ZATFchWTd5xiYB94zZCNXNwfBAm9ShrtNnNQQib3mZBQ7s6MMJr8BVVKVdxk6RiHuOmY0ifKKAN8eLg7YmxuUckgQu7YpyeM16rNAZDZD

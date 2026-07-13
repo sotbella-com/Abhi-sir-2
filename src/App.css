@@ -1,0 +1,209 @@
+/* Fonts (keep Google imports) */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
+
+/* ✅ Removed Tailwind imports & @layer */
+
+/* Default font */
+html {
+  font-family: 'Lato', sans-serif;
+}
+
+/* Global scrollbar style */
+/* html,
+body {
+  overflow-y: scroll;       keep layout stable
+  scrollbar-width: thin;    Firefox
+} */
+
+/* Hide page scrollbar; we'll style only component scrollbars */
+html,
+body {
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  /* IE/old Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* ✅ Ultra-thin scrollbar INSIDE COMPONENTS ONLY */
+.scroll-thin {
+  scrollbar-width: thin;
+  /* Firefox */
+  scrollbar-color: #c0c0c0 #f5f5f5;
+  /* Firefox thumb/track */
+}
+
+.scroll-thin::-webkit-scrollbar {
+  width: 1px !important;
+  /* Chrome/Edge/Safari */
+  height: 1px !important;
+}
+
+.scroll-thin::-webkit-scrollbar-thumb {
+  background-color: #c0c0c0 !important;
+  /* light gray */
+  border-radius: 1px !important;
+}
+
+.scroll-thin::-webkit-scrollbar-track {
+  background: #f5f5f5 !important;
+}
+
+/* keep same color on hover/active */
+.scroll-thin::-webkit-scrollbar-thumb:hover,
+.scroll-thin::-webkit-scrollbar-thumb:active {
+  background-color: #c0c0c0 !important;
+}
+
+/* Scrollbar hide utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+/* Toastify styles */
+.Toastify__toast {
+  background: #fff !important;
+  color: #000 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+  padding: 12px 16px !important;
+  width: 450px !important;
+  max-width: 90% !important;
+  margin: 0 auto;
+}
+
+.Toastify__close-button {
+  color: #000 !important;
+  opacity: 1 !important;
+}
+
+.Toastify__progress-bar {
+  background: black !important;
+}
+
+/* Slick carousel */
+.slick-slide {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100vh !important;
+}
+
+.slick-track {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+.slick-list {
+  height: 100vh !important;
+  overflow: hidden !important;
+}
+
+/* Remove arrows/spinners from number input */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* Ant Design overrides */
+.ant-modal-content {
+  border-radius: 0 !important;
+}
+
+.ant-checkbox-inner {
+  border-radius: 0 !important;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #000 !important;
+  border-color: #000 !important;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner::after {
+  border-color: white !important;
+}
+
+.ant-checkbox:hover .ant-checkbox-inner {
+  border-color: #000 !important;
+}
+
+.ant-picker-focused {
+  box-shadow: none !important;
+}
+
+/* ================= DatePicker: placeholder + calendar icon ================= */
+
+/* Placeholder text BLACK when no value */
+.ant-picker-input>input::placeholder {
+  color: #000 !important;
+  opacity: 1;
+  /* Firefox fix */
+}
+
+/* Calendar icon BLACK when no date selected */
+.ant-picker:not(.ant-picker-disabled):not(.ant-picker-has-value) .ant-picker-suffix .anticon {
+  color: #000 !important;
+  opacity: 0.7;
+}
+
+/* Calendar icon GREY when disabled (locked DOB / anniversary) */
+.ant-picker.ant-picker-disabled .ant-picker-suffix .anticon {
+  color: rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Remove AntD focus blue ring completely */
+.ant-picker-focused {
+  box-shadow: none !important;
+}
+
+
+/* toast msg color */
+.Toastify__toast--warning .Toastify__toast-icon svg,
+.Toastify__toast--warning .Toastify__toast-icon svg *,
+.Toastify__toast--error .Toastify__toast-icon svg,
+.Toastify__toast--error .Toastify__toast-icon svg * {
+  fill: #D30000 !important;
+  stroke: #D30000 !important;
+}
+
+.Toastify__toast--info .Toastify__toast-icon svg,
+.Toastify__toast--info .Toastify__toast-icon svg *,
+.Toastify__toast--success .Toastify__toast-icon svg,
+.Toastify__toast--success .Toastify__toast-icon svg * {
+  fill: #000 !important;
+  stroke: #000 !important;
+}
+
+
+/* Prevents iOS Safari from zooming in on inputs */
+@media screen and (max-width: 768px) {
+
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}

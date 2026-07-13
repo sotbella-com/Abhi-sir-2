@@ -1,0 +1,112 @@
+{
+    "SHOP": [
+        {
+            "label": "New In",
+            "href": "/category/new_in"
+        },
+        {
+            "label": "Shop by Category",
+            "href": "/category/shop_by_category"
+        },
+        {
+            "label": "Occasion Wear",
+            "href": "/category/occasion_wear"
+        },
+        {
+            "label": "Fabric Edit",
+            "href": "/category/fabric_edit"
+        },
+        {
+            "label": "The Style Edit",
+            "href": "/category/the_style_edit"
+        },
+        {
+            "label": "Style by Color",
+            "href": "/category/style_by_color"
+        }
+    ],
+    "COMPANY": [
+        {
+            "label": "About Us",
+            "href": "/aboutus"
+        },
+        {
+            "label": "Contact Us",
+            "href": "/contactus"
+        },
+        {
+            "label": "Careers",
+            "href": "/career"
+        },
+        {
+            "label": "Testimonial",
+            "href": "/testimonial"
+        }
+    ],
+    "LEGAL": [
+        {
+            "label": "Privacy Policy",
+            "href": "/privacypolicy"
+        },
+        {
+            "label": "Terms & Conditions",
+            "href": "/terms"
+        },
+        {
+            "label": "Cookies",
+            "href": "/cookies"
+        },
+        {
+            "label": "Shipping & Delivery",
+            "href": "/shippingpolicy"
+        },
+        {
+            "label": "Retun & Refund",
+            "href": "/returnrefundpolicy"
+        }
+    ],
+    "CUSTOMER CARE": [
+        {
+            "label": "Track Order",
+            "href": "/trackorder"
+        },
+        {
+            "label": "Retun & Exchange",
+            "href": "/returnexchange"
+        },  
+        {
+            "label": "FAQs",
+            "href": "/faq"
+        },
+        {
+            "label": "Size Guide",
+            "href": "/sizeguide"
+        }
+    ],
+    "NEWSLETTER SIGNUP": [
+        {
+            "label": "Subscribe for new arrivals & exclusive access.",
+            "href": ""
+        },
+        {
+            "label": "[Subscribe & Save 10%]",
+            "href": ""
+        },
+        {
+            "label": "WANT TO COLLABORATE WITH US?",
+            "href": "/collaborate"
+        }
+    ],
+    "Download Our App": [
+        {
+            "label": "App Store",
+            "href": "",
+            "link": "https://sfcc.sotbella360.com/on/demandware.static/-/Sites-sotbella_in-Library/default/Appstore.png"
+        },
+        {
+            "label": "Google Play",
+            "href": "",
+            "link": "https://sfcc.sotbella360.com/on/demandware.static/-/Sites-sotbella_in-Library/default/Gplay.webp"
+        }
+    ]
+}

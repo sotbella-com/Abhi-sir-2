@@ -1,0 +1,72 @@
+# robots.txt for https://sotbella.com/
+
+User-agent: *
+Disallow: /login
+Disallow: /main-login
+Disallow: /create-account
+Disallow: /verify-otp
+Disallow: /manage-profile
+Disallow: /wishlist
+Disallow: /mobileacount
+Disallow: /order
+Disallow: /ordersummary/
+Disallow: /customer-address
+Disallow: /add-address
+Disallow: /edit-address/
+Disallow: /edit-shipping-address/
+Disallow: /cart
+Disallow: /shipping
+Disallow: /address
+Disallow: /thankyou
+Disallow: /greetthankyou
+Disallow: /trackorder
+Disallow: /rating-review/
+Disallow: /returnexchange
+Disallow: /returnexchange/
+Disallow: /exchange/
+Disallow: /search
+Disallow: /api/
+Disallow: /*?*utm_
+Disallow: /*?*gclid=
+Disallow: /*?*fbclid=
+
+User-agent: adsbot-google
+Disallow: /login
+Disallow: /main-login
+Disallow: /create-account
+Disallow: /verify-otp
+Disallow: /manage-profile
+Disallow: /wishlist
+Disallow: /mobileacount
+Disallow: /order
+Disallow: /ordersummary/
+Disallow: /customer-address
+Disallow: /add-address
+Disallow: /edit-address/
+Disallow: /edit-shipping-address/
+Disallow: /cart
+Disallow: /shipping
+Disallow: /address
+Disallow: /thankyou
+Disallow: /greetthankyou
+Disallow: /rating-review/
+Disallow: /returnexchange
+Disallow: /returnexchange/
+Disallow: /exchange/
+Disallow: /search
+Disallow: /api/
+
+User-agent: Nutch
+Disallow: /
+
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: AhrefsSiteAudit
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 10
+
+User-agent: Pinterest
+Crawl-delay: 1

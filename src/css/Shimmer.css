@@ -1,0 +1,75 @@
+.shimmer {
+  background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    #f0f0f0;
+  background-size: 200% 100%;
+  animation: shimmerAnimation 1.5s infinite linear;
+}
+
+@keyframes shimmerAnimation {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmertop {
+  height: 200px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmerAnimation 1.5s infinite linear;
+}
+
+/* ✅ Give the bars an actual height + rounding */
+.shimmer-bar {
+  display: block;          /* ensure it takes width/height */
+  height: 14px;            /* visible height */
+}
+
+/* ✅ smaller variant instead of plain 'sm' */
+.shimmer-bar--sm {
+  height: 10px;
+}
+
+@keyframes shimmerAnimation {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+
+.size-guide-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.size-guide-tooltip {
+  position: absolute;
+  bottom: 125%; /* Show above the icon */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  color: black;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 10;
+}
+
+/* Show tooltip on hover */
+.size-guide-wrapper:hover .size-guide-tooltip {
+  opacity: 1;
+}

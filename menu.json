@@ -1,0 +1,807 @@
+{
+    "limit": 1,
+    "data": [
+        {
+            "categories": [
+                {
+                    "categories": [
+                        {
+                            "id": "linen_breeze",
+                            "name": "Linen Breeze",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "fabric_edit",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "fabric_edit",
+                                    "name": "FABRIC EDIT"
+                                },
+                                {
+                                    "id": "linen_breeze",
+                                    "name": "Linen Breeze"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "organza_styles",
+                            "name": "Organza Styles",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "fabric_edit",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "fabric_edit",
+                                    "name": "FABRIC EDIT"
+                                },
+                                {
+                                    "id": "organza_styles",
+                                    "name": "Organza Styles"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "satin_luxe",
+                            "name": "Satin Luxe",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "fabric_edit",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "fabric_edit",
+                                    "name": "FABRIC EDIT"
+                                },
+                                {
+                                    "id": "satin_luxe",
+                                    "name": "Satin Luxe"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "sequin_sparkle",
+                            "name": "Sequin Sparkle",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "fabric_edit",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "fabric_edit",
+                                    "name": "FABRIC EDIT"
+                                },
+                                {
+                                    "id": "sequin_sparkle",
+                                    "name": "Sequin Sparkle"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "tencel_comfort",
+                            "name": "Tencel Comfort",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "fabric_edit",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "fabric_edit",
+                                    "name": "FABRIC EDIT"
+                                },
+                                {
+                                    "id": "tencel_comfort",
+                                    "name": "Tencel Comfort"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        }
+                    ],
+                    "id": "fabric_edit",
+                    "image": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella-in-storefront/default/dwae6d80ab/sotbella_catagories1.jpg",
+                    "name": "FABRIC EDIT",
+                    "onlineSubCategoriesCount": 5,
+                    "parentCategoryId": "root",
+                    "parentCategoryTree": [
+                        {
+                            "id": "fabric_edit",
+                            "name": "FABRIC EDIT"
+                        }
+                    ],
+                    "thumbnail": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella-in-storefront/default/dwae6d80ab/sotbella_catagories1.jpg",
+                    "c_enableCompare": false,
+                    "c_showInMenu": false
+                },
+                {
+                    "categories": [
+                        {
+                            "id": "back_in_stock",
+                            "image": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella-in-storefront/default/dwae6d80ab/sotbella_catagories1.jpg",
+                            "name": "Back in Stock",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "new_in",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "new_in",
+                                    "name": "NEW IN"
+                                },
+                                {
+                                    "id": "back_in_stock",
+                                    "name": "Back in Stock"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "latest_arrivals",
+                            "name": "Latest Arrivals",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "new_in",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "new_in",
+                                    "name": "NEW IN"
+                                },
+                                {
+                                    "id": "latest_arrivals",
+                                    "name": "Latest Arrivals"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "trending_now",
+                            "name": "Trending Now",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "new_in",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "new_in",
+                                    "name": "NEW IN"
+                                },
+                                {
+                                    "id": "trending_now",
+                                    "name": "Trending Now"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        }
+                    ],
+                    "id": "new_in",
+                    "image": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella-in-storefront/default/dwbf71a61c/sotbella_catagories2.jpg",
+                    "name": "NEW IN",
+                    "onlineSubCategoriesCount": 3,
+                    "parentCategoryId": "root",
+                    "parentCategoryTree": [
+                        {
+                            "id": "new_in",
+                            "name": "NEW IN"
+                        }
+                    ],
+                    "thumbnail": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella-in-storefront/default/dwbf71a61c/sotbella_catagories2.jpg",
+                    "c_enableCompare": false,
+                    "c_showInMenu": true
+                },
+                {
+                    "categories": [
+                        {
+                            "id": "celebration_edit",
+                            "name": "Celebration Edit",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "occasion_wear",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "occasion_wear",
+                                    "name": "OCCASION WEAR"
+                                },
+                                {
+                                    "id": "celebration_edit",
+                                    "name": "Celebration Edit"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "evening_wear",
+                            "name": "Evening Wear",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "occasion_wear",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "occasion_wear",
+                                    "name": "OCCASION WEAR"
+                                },
+                                {
+                                    "id": "evening_wear",
+                                    "name": "Evening Wear"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "everyday_chic",
+                            "name": "Everyday Chic",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "occasion_wear",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "occasion_wear",
+                                    "name": "OCCASION WEAR"
+                                },
+                                {
+                                    "id": "everyday_chic",
+                                    "name": "Everyday Chic"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "formal_&_power_dressing",
+                            "name": "Formal & Power Dressing",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "occasion_wear",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "occasion_wear",
+                                    "name": "OCCASION WEAR"
+                                },
+                                {
+                                    "id": "formal_&_power_dressing",
+                                    "name": "Formal & Power Dressing"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "special_event_edit",
+                            "name": "Special Event Edit",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "occasion_wear",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "occasion_wear",
+                                    "name": "OCCASION WEAR"
+                                },
+                                {
+                                    "id": "special_event_edit",
+                                    "name": "Special Event Edit"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        }
+                    ],
+                    "id": "occasion_wear",
+                    "image": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella-in-storefront/default/dw48c81a8f/sotbella_catagories3.jpg",
+                    "name": "OCCASION WEAR",
+                    "onlineSubCategoriesCount": 5,
+                    "parentCategoryId": "root",
+                    "parentCategoryTree": [
+                        {
+                            "id": "occasion_wear",
+                            "name": "OCCASION WEAR"
+                        }
+                    ],
+                    "thumbnail": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella-in-storefront/default/dw48c81a8f/sotbella_catagories3.jpg",
+                    "c_enableCompare": false,
+                    "c_showInMenu": true
+                },
+                {
+                    "categories": [
+                        {
+                            "id": "flat_discounts",
+                            "name": "Flat Discounts",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "sale",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "sale",
+                                    "name": "SALE"
+                                },
+                                {
+                                    "id": "flat_discounts",
+                                    "name": "Flat Discounts"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "last_chance",
+                            "name": "Last Chance",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "sale",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "sale",
+                                    "name": "SALE"
+                                },
+                                {
+                                    "id": "last_chance",
+                                    "name": "Last Chance"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        }
+                    ],
+                    "id": "sale",
+                    "image": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella-in-storefront/default/dwbf71a61c/sotbella_catagories2.jpg",
+                    "name": "SALE",
+                    "onlineSubCategoriesCount": 2,
+                    "parentCategoryId": "root",
+                    "parentCategoryTree": [
+                        {
+                            "id": "sale",
+                            "name": "SALE"
+                        }
+                    ],
+                    "thumbnail": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella-in-storefront/default/dwbf71a61c/sotbella_catagories2.jpg",
+                    "c_enableCompare": false,
+                    "c_showInMenu": false
+                },
+                {
+                    "categories": [
+                        {
+                            "id": "co-ord_sets",
+                            "name": "Co-ord Sets",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "shop_by_category",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "shop_by_category",
+                                    "name": "SHOP BY CATEGORY"
+                                },
+                                {
+                                    "id": "co-ord_sets",
+                                    "name": "Co-ord Sets"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "dresses",
+                            "name": "Dresses",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "shop_by_category",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "shop_by_category",
+                                    "name": "SHOP BY CATEGORY"
+                                },
+                                {
+                                    "id": "dresses",
+                                    "name": "Dresses"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "shirts",
+                            "name": "Shirts",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "shop_by_category",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "shop_by_category",
+                                    "name": "SHOP BY CATEGORY"
+                                },
+                                {
+                                    "id": "shirts",
+                                    "name": "Shirts"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "skirts_&_shorts",
+                            "name": "Skirts & Shorts",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "shop_by_category",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "shop_by_category",
+                                    "name": "SHOP BY CATEGORY"
+                                },
+                                {
+                                    "id": "skirts_&_shorts",
+                                    "name": "Skirts & Shorts"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "tops_&_tees",
+                            "name": "Tops & Tees",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "shop_by_category",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "shop_by_category",
+                                    "name": "SHOP BY CATEGORY"
+                                },
+                                {
+                                    "id": "tops_&_tees",
+                                    "name": "Tops & Tees"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "trousers_&_jeans",
+                            "name": "Trousers & Jeans",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "shop_by_category",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "shop_by_category",
+                                    "name": "SHOP BY CATEGORY"
+                                },
+                                {
+                                    "id": "trousers_&_jeans",
+                                    "name": "Trousers & Jeans"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        }
+                    ],
+                    "id": "shop_by_category",
+                    "image": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella-in-storefront/default/dw48c81a8f/sotbella_catagories3.jpg",
+                    "name": "SHOP BY CATEGORY",
+                    "onlineSubCategoriesCount": 6,
+                    "parentCategoryId": "root",
+                    "parentCategoryTree": [
+                        {
+                            "id": "shop_by_category",
+                            "name": "SHOP BY CATEGORY"
+                        }
+                    ],
+                    "thumbnail": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella-in-storefront/default/dw48c81a8f/sotbella_catagories3.jpg",
+                    "c_enableCompare": false,
+                    "c_showInMenu": true
+                },
+                {
+                    "categories": [
+                        {
+                            "id": "beige",
+                            "name": "Beige",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "style_by_color",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "style_by_color",
+                                    "name": "STYLE BY COLOR"
+                                },
+                                {
+                                    "id": "beige",
+                                    "name": "Beige"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "black",
+                            "name": "Black",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "style_by_color",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "style_by_color",
+                                    "name": "STYLE BY COLOR"
+                                },
+                                {
+                                    "id": "black",
+                                    "name": "Black"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "blue",
+                            "name": "Blue",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "style_by_color",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "style_by_color",
+                                    "name": "STYLE BY COLOR"
+                                },
+                                {
+                                    "id": "blue",
+                                    "name": "Blue"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "gray",
+                            "name": "Gray",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "style_by_color",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "style_by_color",
+                                    "name": "STYLE BY COLOR"
+                                },
+                                {
+                                    "id": "gray",
+                                    "name": "Gray"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "green",
+                            "name": "Green",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "style_by_color",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "style_by_color",
+                                    "name": "STYLE BY COLOR"
+                                },
+                                {
+                                    "id": "green",
+                                    "name": "Green"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "multi",
+                            "name": "Multi",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "style_by_color",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "style_by_color",
+                                    "name": "STYLE BY COLOR"
+                                },
+                                {
+                                    "id": "multi",
+                                    "name": "Multi"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "orange",
+                            "name": "Orange",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "style_by_color",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "style_by_color",
+                                    "name": "STYLE BY COLOR"
+                                },
+                                {
+                                    "id": "orange",
+                                    "name": "Orange"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "pink",
+                            "name": "Pink",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "style_by_color",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "style_by_color",
+                                    "name": "STYLE BY COLOR"
+                                },
+                                {
+                                    "id": "pink",
+                                    "name": "Pink"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "red",
+                            "name": "Red",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "style_by_color",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "style_by_color",
+                                    "name": "STYLE BY COLOR"
+                                },
+                                {
+                                    "id": "red",
+                                    "name": "Red"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "silver",
+                            "name": "Silver",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "style_by_color",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "style_by_color",
+                                    "name": "STYLE BY COLOR"
+                                },
+                                {
+                                    "id": "silver",
+                                    "name": "Silver"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "white",
+                            "name": "White",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "style_by_color",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "style_by_color",
+                                    "name": "STYLE BY COLOR"
+                                },
+                                {
+                                    "id": "white",
+                                    "name": "White"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "yellow",
+                            "name": "Yellow",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "style_by_color",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "style_by_color",
+                                    "name": "STYLE BY COLOR"
+                                },
+                                {
+                                    "id": "yellow",
+                                    "name": "Yellow"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        }
+                    ],
+                    "id": "style_by_color",
+                    "image": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella-in-storefront/default/dwae6d80ab/sotbella_catagories1.jpg",
+                    "name": "STYLE BY COLOR",
+                    "onlineSubCategoriesCount": 12,
+                    "parentCategoryId": "root",
+                    "parentCategoryTree": [
+                        {
+                            "id": "style_by_color",
+                            "name": "STYLE BY COLOR"
+                        }
+                    ],
+                    "thumbnail": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella-in-storefront/default/dwae6d80ab/sotbella_catagories1.jpg",
+                    "c_enableCompare": false,
+                    "c_showInMenu": true
+                },
+                {
+                    "categories": [
+                        {
+                            "id": "bestsellers",
+                            "name": "Bestsellers",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "the_style_edit",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "the_style_edit",
+                                    "name": "THE STYLE EDIT"
+                                },
+                                {
+                                    "id": "bestsellers",
+                                    "name": "Bestsellers"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "celebrity_inspired",
+                            "name": "Celebrity Inspired",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "the_style_edit",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "the_style_edit",
+                                    "name": "THE STYLE EDIT"
+                                },
+                                {
+                                    "id": "celebrity_inspired",
+                                    "name": "Celebrity Inspired"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "everyday_essentials",
+                            "name": "Everyday Essentials",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "the_style_edit",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "the_style_edit",
+                                    "name": "THE STYLE EDIT"
+                                },
+                                {
+                                    "id": "everyday_essentials",
+                                    "name": "Everyday Essentials"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        },
+                        {
+                            "id": "statement_pieces",
+                            "name": "Statement Pieces",
+                            "onlineSubCategoriesCount": 0,
+                            "parentCategoryId": "the_style_edit",
+                            "parentCategoryTree": [
+                                {
+                                    "id": "the_style_edit",
+                                    "name": "THE STYLE EDIT"
+                                },
+                                {
+                                    "id": "statement_pieces",
+                                    "name": "Statement Pieces"
+                                }
+                            ],
+                            "c_enableCompare": false,
+                            "c_showInMenu": true
+                        }
+                    ],
+                    "id": "the_style_edit",
+                    "image": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella-in-storefront/default/dw48c81a8f/sotbella_catagories3.jpg",
+                    "name": "THE STYLE EDIT",
+                    "onlineSubCategoriesCount": 4,
+                    "parentCategoryId": "root",
+                    "parentCategoryTree": [
+                        {
+                            "id": "the_style_edit",
+                            "name": "THE STYLE EDIT"
+                        }
+                    ],
+                    "thumbnail": "https://stgsfcc.sotbella.com/on/demandware.static/-/Sites-sotbella-in-storefront/default/dw48c81a8f/sotbella_catagories3.jpg",
+                    "c_enableCompare": false,
+                    "c_showInMenu": true
+                }
+            ],
+            "description": "Storefront Catalog",
+            "id": "root",
+            "name": "Sotbella India Storefront Catalog",
+            "onlineSubCategoriesCount": 7
+        }
+    ],
+    "total": 1
+}

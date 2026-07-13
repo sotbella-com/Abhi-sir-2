@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          "gtm.start": new Date().getTime(),
+          event: "gtm.js",
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TVR5ZK6H");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Content Security Policy - Allow unsafe-eval for Salesforce/Evergage scripts -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' http: https: data: blob: 'unsafe-inline' 'unsafe-eval'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.evgnet.com https://*.evergage.com https://www.googletagmanager.com https://www.google-analytics.com https://js.stripe.com; connect-src 'self' https://cdn.evgnet.com https://*.evergage.com https://*.commercecloud.salesforce.com https://www.google-analytics.com https://www.googletagmanager.com; img-src 'self' data: blob: https:; font-src 'self' data: https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;"> -->
+
+    <!-- Content Security Policy - Configured per Evergage/MCP requirements -->
+    <!-- Includes 'unsafe-eval' for MCP beacon and all required domains -->
+
+    <!-- Evergage / Salesforce Interaction Studio -->
+    <!-- Set userId immediately when script loads to prevent missing userId errors -->
+    <script type="text/javascript">
+      // Get customer ID from localStorage immediately (before Evergage loads)
+      function getCustomerIdForEvergage() {
+        try {
+          // Try auth_token first
+          const authToken = localStorage.getItem("auth_token");
+          if (authToken) {
+            const tokenData = JSON.parse(authToken);
+            if (tokenData?.customer_id) {
+              return tokenData.customer_id;
+            }
+          }
+          // Fallback to guest_token
+          const guestToken = localStorage.getItem("guest_token");
+          if (guestToken) {
+            const guestData = JSON.parse(guestToken);
+            if (guestData?.customer_id) {
+              return guestData.customer_id;
+            }
+          }
+          // Fallback to CUSTOMER_ID
+          return localStorage.getItem("CUSTOMER_ID");
+        } catch (e) {
+          return null;
+        }
+      }
+
+      // Set userId as soon as Evergage is available
+      function setEvergageUserId() {
+        const customerId = getCustomerIdForEvergage();
+        if (customerId && window.Evergage) {
+          try {
+            // Try multiple methods to set userId
+            if (window.Evergage.userId !== undefined) {
+              window.Evergage.userId = customerId;
+            }
+            if (typeof window.Evergage.setUserId === "function") {
+              window.Evergage.setUserId(customerId);
+            }
+            if (window._evg && typeof window._evg.push === "function") {
+              window._evg.push(["setUserId", customerId]);
+            }
+          } catch (e) {}
+        }
+      }
+
+      // Check for Evergage immediately and set userId
+      if (window.Evergage) {
+        setEvergageUserId();
+      } else {
+        // Poll for Evergage to become available
+        const checkInterval = setInterval(function () {
+          if (window.Evergage) {
+            clearInterval(checkInterval);
+            setEvergageUserId();
+          }
+        }, 50); // Check every 50ms
+
+        // Stop checking after 5 seconds
+        setTimeout(function () {
+          clearInterval(checkInterval);
+        }, 5000);
+      }
+    </script>
+    <script
+      type="text/javascript"
+      async
+      src="https://cdn.evgnet.com/beacon/globolosysfashion/sotbella_india_prod/scripts/evergage.min.js"
+      onerror="console.error('Evergage script failed to load')"
+      onload="
+        console.log('Evergage script loaded successfully');
+        setEvergageUserId();
+      "
+    ></script>
+
+    <!-- REFERSION TRACKING: BEGIN -->
+    <script>
+      (function (e, n, t, i, o, c, s, a) {
+        e.TrackingSystemObject = "r";
+
+        s = n.createElement(t);
+        s.async = 1;
+        s.src = "https://cdn.refersion.com/refersion.js";
+
+        // ✅ SUCCESS: script loaded
+        s.onload = function () {
+          console.log("Refersion script file loaded ✅");
+
+          r.pubKey = "pub_d55db167f8e96afcb920";
+          r.settings.fp_off = true;
+
+          r.initializeXDLS()
+            .then(() => {
+              console.log("Refersion XDLS initialized ✅");
+              return r.launchDefault();
+            })
+            .then(() => {
+              console.log("Refersion fully launched ✅");
+
+              // 🔔 Custom event (you can listen anywhere)
+              const ev = new Event("refersion-loaded");
+              document.dispatchEvent(ev);
+            })
+            .catch((err) => {
+              console.error("Refersion initialization failed ❌", err);
+            });
+        };
+
+        // ❌ ERROR: script failed to load
+        s.onerror = function () {
+          console.error("Failed to load Refersion script ❌");
+        };
+
+        a = n.getElementsByTagName(t)[0];
+        a.parentNode.insertBefore(s, a);
+      })(window, document, "script");
+
+      // ✅ LISTENER (optional but recommended)
+      document.addEventListener("refersion-loaded", function () {
+        console.log("Refersion is completely ready 🚀");
+      });
+    </script>
+
+    <!-- NITRO TRACKING: START -->
+    <!-- <script type="text/javascript">
+      (function (n, i, t, r, o) {
+        var a, m;
+        n["NitroObject"] = o;
+        n[o] =
+          n[o] ||
+          function () {
+            (n[o].q = n[o].q || []).push(arguments);
+          };
+        n[o].l = 1 * new Date();
+        n[o].h = r;
+        a = i.createElement(t);
+        m = i.getElementsByTagName(t)[0];
+        a.async = 1;
+        a.src = r;
+        m.parentNode.insertBefore(a, m);
+      })(
+        window,
+        document,
+        "script",
+        "https://x.nitrocommerce.ai/nitro.js",
+        "nitro",
+      );
+
+      nitro("configure", "d1e45ed4-6f65-4baf-89c3-be9c7039706d");
+    </script> -->
+
+    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://cdn.shopify.com/s/files/1/0843/7642/0654/files/DSC4158_copy_3-1_1.png?v=1730187514"
+    />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?
+    family=Alike&
+    family=MonteCarlo&
+    family=DM+Serif+Display:ital@0;1&
+    family=Inter:wght@100..900&
+    family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,800;0,900;1,100;1,300;1,400;1,700;1,800;1,900&
+    family=Playfair+Display:ital,wght@0,400..900;1,400..900&
+    family=Poppins:ital,wght@0,100..900;1,100..900&
+    family=Roboto:ital,wght@0,100..900;1,100..900
+    &display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@200;300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Sotbella -The Online Affordable Luxury Women's Fashion | New Collection
+    </title>
+    <!-- description -->
+    <meta
+      name="description"
+      content="Experience the pinnacle of sustainable luxury with Sotbella, India’s premier fashion brand at the forefront of inclusivity and environmental responsibility. Collections that celebrate diversity and elegance without draining your wallet."
+    />
+  </head>
+
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TVR5ZK6H"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
