@@ -1,0 +1,59 @@
+/* AYRA Cosmic-read capture — luxe dark card, champagne accent (matches the orb). */
+.ayra-birth-scrim {
+  position: fixed; inset: 0; z-index: 2147483200;
+  display: grid; place-items: center; padding: 20px;
+  background: rgba(6, 4, 10, 0.62);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+}
+.ayra-birth {
+  position: relative; width: min(400px, 100%);
+  background: radial-gradient(120% 100% at 50% 0%, #1a1622 0%, #0c0a12 70%);
+  border: 1px solid rgba(184, 161, 121, 0.35);
+  border-radius: 20px; padding: 26px 22px 20px;
+  color: #fff; font-family: "Lato", system-ui, sans-serif;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255,255,255,0.03) inset;
+}
+.ayra-birth-x {
+  position: absolute; top: 12px; right: 12px; background: none; border: none;
+  color: rgba(255,255,255,0.55); cursor: pointer; padding: 4px;
+}
+.ayra-birth-eyebrow {
+  font-size: 10.5px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: #b8a179; padding-left: 0.32em; margin-bottom: 8px;
+}
+.ayra-birth-title {
+  font-family: "Playfair Display", "DM Serif Display", Georgia, serif;
+  font-weight: 500; font-size: 24px; line-height: 1.15; margin: 0 0 6px;
+}
+.ayra-birth-sub { font-size: 13.5px; line-height: 1.45; color: rgba(255,255,255,0.68); margin: 0 0 18px; }
+
+.ayra-birth-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.ayra-birth-field > span {
+  font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.6);
+}
+.ayra-birth-field > span em { text-transform: none; letter-spacing: 0; color: rgba(255,255,255,0.4); font-style: normal; }
+.ayra-birth-field input {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 12px; padding: 12px 14px; color: #fff; font-size: 15px;
+  outline: none; transition: border-color .18s ease;
+  color-scheme: dark;
+}
+.ayra-birth-field input:focus { border-color: rgba(184,161,121,0.7); }
+.ayra-birth-field input::placeholder { color: rgba(255,255,255,0.35); }
+.ayra-birth-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.ayra-birth-go {
+  width: 100%; margin-top: 4px; padding: 14px; border-radius: 999px; border: none; cursor: pointer;
+  background: linear-gradient(180deg, #f2e6cf 0%, #d9c299 100%); color: #1a1410;
+  font-size: 15px; font-weight: 700; letter-spacing: 0.02em;
+  transition: transform .16s ease, opacity .16s ease;
+}
+.ayra-birth-go:hover:not(:disabled) { transform: translateY(-1px); }
+.ayra-birth-go:disabled { opacity: 0.5; cursor: default; }
+.ayra-birth-skip {
+  width: 100%; margin-top: 10px; background: none; border: none; cursor: pointer;
+  color: rgba(255,255,255,0.5); font-size: 12.5px; letter-spacing: 0.02em;
+}
+.ayra-birth-skip:hover { color: rgba(255,255,255,0.8); }
+
+@media (max-width: 420px) { .ayra-birth-row { grid-template-columns: 1fr; } }

@@ -10,8 +10,14 @@
 
 import { isUserLoggedIn, getAuthTokenObject } from './tokenUtils';
 import { getCustomer } from '@/api/services/sfccCustomers';
+import { isShowroom } from '@/ayra/showroomMode';
 
 const DEFAULT_CURRENCY = 'INR';
+
+// ISOLATION: while AYRA "showroom" test mode is active, AYRA drives the REAL store —
+// so suppress the demo storefront's production GTM/pixel + direct prod-CAPI events for
+// that session. Only the isolated test-pixel AYRA custom events (ayraEvents.js) fire.
+const _showroomBlocked = () => { try { return isShowroom(); } catch { return false; } };
 
 const _getCookie = (name) => {
   const match = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '=([^;]*)'));
@@ -102,6 +108,7 @@ const transformItems = (items = [], currency = DEFAULT_CURRENCY) => {
 };
 
 export const pushToDataLayer = async (eventName, ecommerce = {}, options = {}) => {
+  if (_showroomBlocked()) return; // AYRA showroom test session — no prod GTM/pixel
   initDataLayer();
   try {
     const eventId = options.event_id || crypto.randomUUID();
@@ -148,6 +155,7 @@ export const trackViewItem = async (product, currency = DEFAULT_CURRENCY) => {
 };
 
 export const trackAddToCart = async (product, quantity = 1, currency = DEFAULT_CURRENCY) => {
+  if (_showroomBlocked()) return; // AYRA showroom test session — no prod CAPI
   const itemPrice = Number(product.price || product.basePrice || product.priceAfterItemDiscount || 0);
   const ecommerce = {
     currency: DEFAULT_CURRENCY,
@@ -186,6 +194,7 @@ export const trackAddToCart = async (product, quantity = 1, currency = DEFAULT_C
 };
 
 export const trackBeginCheckout = async (basket, currency = null) => {
+  if (_showroomBlocked()) return; // AYRA showroom test session — no prod CAPI
   const basketCurrency = getCurrency(basket, currency);
   const items = transformItems(basket.productItems || basket.items || [], basketCurrency);
   const totalValue = Number(basket.orderTotal || basket.total || 0);
@@ -225,6 +234,7 @@ export const trackBeginCheckout = async (basket, currency = null) => {
 };
 
 export const trackPurchase = async (order, transactionId, currency = null) => {
+  if (_showroomBlocked()) return; // AYRA showroom test session — no prod CAPI
   const orderCurrency = getCurrency(order, currency);
   const items = transformItems(order.items || order.productItems || [], orderCurrency);
   const totalValue = Number(order.orderTotal || order.total || order.value || 0);

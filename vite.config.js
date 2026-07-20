@@ -37,6 +37,8 @@ export default defineConfig(({ mode }) => {
       host: true,
       port: 3005,
       strictPort: true,
+      // Allow the temporary cloudflared quick-tunnel host (test hosting).
+      allowedHosts: [".trycloudflare.com", "localhost"],
       proxy: {
         "/sfcc": {
           target: "https://dyp4l3dm.api.commercecloud.salesforce.com",

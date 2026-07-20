@@ -381,6 +381,7 @@ const ChakraProductListingZigZag = ({
               return (
                 <Box
                   key={item.id}
+                  data-product-id={productIdToShow}
                   position="relative"
                   w="full"
                   border="1px"

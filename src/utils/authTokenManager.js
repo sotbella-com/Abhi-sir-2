@@ -6,10 +6,16 @@
 
 import { logger } from './logger.js';
 
-// Determine base URL for SFCC API calls
-const SFCC_BASE_URL = import.meta.env.DEV
-  ? '/sfcc'  // Use Vite proxy in development
-  : 'https://dyp4l3dm.api.commercecloud.salesforce.com';  // Direct API in production
+// Determine base URL for SFCC API calls.
+// Honor VITE_SFCC_BASE_URL (set to "/sfcc" on the Railway/proxy host) so the
+// token calls go SAME-ORIGIN through server.cjs — origin-independent, no SFCC
+// CORS allowlist needed (works from any host incl. the app webview / tunnels).
+// Falls back to the Vite dev proxy, then the direct SFCC host.
+const SFCC_BASE_URL =
+  import.meta.env.VITE_SFCC_BASE_URL ||
+  (import.meta.env.DEV
+    ? '/sfcc' // Vite dev proxy
+    : 'https://dyp4l3dm.api.commercecloud.salesforce.com'); // direct host
 
 const AUTH_TOKEN_KEY = 'auth_token';
 const TOKEN_REFRESH_THRESHOLD = 300; // 5 minutes before expiry

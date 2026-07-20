@@ -23,6 +23,7 @@ const ProductCard = ({
 
   return (
     <Box
+      data-product-id={product?.id}
       border="1px"
       borderColor="gray.200"
       borderRadius="md"

@@ -1,0 +1,153 @@
+/* AYRA conscious showroom — Sotbella luxe monochrome (graphite/ivory + champagne
+   accent). Scoped under .ayra-* so it never collides with storefront styles. */
+
+.ayra-root {
+  --ink: #17140f;
+  --paper: #fbf9f5;
+  --accent: #b8a179;        /* champagne metal */
+  --line: #e4e0d8;
+  --muted: #7c766c;
+  position: fixed;
+  z-index: 2147483000;
+  color: var(--ink);
+  font-family: "Lato", system-ui, sans-serif;
+}
+.ayra-root.is-mobile { left: 0; right: 0; bottom: 0; }
+.ayra-root.is-desktop { right: 24px; bottom: 24px; width: 380px; }
+
+/* ── Copilot mode: the orb floats on the whole site; root never blocks the page ── */
+.ayra-root.is-copilot {
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(18px, env(safe-area-inset-bottom));
+  width: auto;
+  pointer-events: none; /* children re-enable */
+  display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
+}
+.ayra-orb-fab {
+  pointer-events: auto;
+  width: 76px; height: 76px; border-radius: 50%;
+  border: none; padding: 0; cursor: pointer;
+  background: radial-gradient(circle at 35% 30%, #23201a 0%, #0d0b08 70%);
+  box-shadow: 0 10px 34px rgba(0,0,0,0.38), 0 0 0 1px rgba(184,161,121,0.35);
+  overflow: hidden; display: grid; place-items: center;
+  transition: transform .18s ease, box-shadow .3s ease;
+}
+.ayra-orb-fab:hover { transform: scale(1.05); }
+.ayra-orb-fab.is-live { box-shadow: 0 10px 34px rgba(0,0,0,0.38), 0 0 24px rgba(184,161,121,0.55), 0 0 0 1px rgba(184,161,121,0.6); }
+.ayra-orb-fab.is-connecting { animation: ayra-fab-pulse 1.2s ease-in-out infinite; }
+@keyframes ayra-fab-pulse { 50% { transform: scale(0.94); opacity: 0.8; } }
+.ayra-orb-fab .ayra-orb-canvas { width: 76px; height: 76px; }
+
+.ayra-fab-status {
+  pointer-events: auto;
+  max-width: 240px; padding: 8px 14px; border-radius: 999px;
+  background: rgba(13,11,8,0.88); color: #fff; font-size: 12px; letter-spacing: 0.02em;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+}
+.ayra-fab-status.has-err { background: rgba(122,32,32,0.92); }
+
+.ayra-proof-float { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.ayra-proof-float .ayra-proof-card {
+  pointer-events: none;
+  background: rgba(251,249,245,0.94); border: 1px solid var(--line);
+  padding: 7px 12px; border-radius: 999px; box-shadow: 0 6px 18px rgba(0,0,0,0.14);
+}
+
+.ayra-eyebrow, .ayra-peek-eyebrow, .ayra-launcher-label, .ayra-proof-card {
+  text-transform: uppercase; letter-spacing: 0.18em; font-size: 10px; color: var(--muted);
+}
+.ayra-center { text-align: center; }
+
+/* ── Launcher ── */
+.ayra-launcher {
+  position: fixed; bottom: 20px; right: 20px; display: inline-flex; align-items: center; gap: 8px;
+  background: var(--ink); color: #fff; border: none; cursor: pointer; padding: 12px 18px;
+  border-radius: 0; font-size: 12px; text-transform: uppercase; letter-spacing: 0.16em;
+  box-shadow: 0 8px 26px rgba(0,0,0,0.22);
+}
+.ayra-root.is-mobile .ayra-launcher { left: 50%; right: auto; transform: translateX(-50%); }
+.ayra-launcher-label { color: #fff; letter-spacing: 0.16em; }
+.ayra-launcher-dot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; }
+.ayra-launcher.is-live .ayra-launcher-dot { animation: ayra-blink 1.4s infinite; }
+@keyframes ayra-blink { 50% { opacity: 0.25; } }
+
+/* ── Proactive peek ── */
+.ayra-peek {
+  position: fixed; right: 20px; bottom: 22px; width: min(320px, calc(100vw - 32px));
+  background: var(--paper); border: 1px solid var(--ink); padding: 18px 18px 16px; box-shadow: 0 18px 48px rgba(0,0,0,0.26);
+}
+.ayra-root.is-mobile .ayra-peek { left: 16px; right: 16px; width: auto; }
+.ayra-peek-x { position: absolute; top: 8px; right: 8px; background: none; border: none; cursor: pointer; color: var(--muted); }
+.ayra-peek-title { font-family: "Playfair Display", "DM Serif Display", serif; font-size: 20px; line-height: 1.25; margin: 6px 0 14px; }
+
+/* ── Buttons ── */
+.ayra-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid var(--ink);
+  background: var(--paper); color: var(--ink); padding: 11px 16px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; cursor: pointer; border-radius: 0; }
+.ayra-btn-dark { background: var(--ink); color: #fff; }
+.ayra-btn-dark:disabled { opacity: 0.6; cursor: default; }
+.ayra-btn-stop { background: #8f2d2d; border-color: #8f2d2d; color: #fff; }
+.ayra-talk { width: 100%; padding: 14px; }
+.ayra-wardrobe-btn { width: 100%; margin-top: 8px; background: var(--paper); color: var(--ink); border-color: var(--accent); }
+
+/* ── Sheet / panel ── */
+.ayra-sheet { position: relative; background: var(--paper); border: 1px solid var(--ink);
+  display: flex; flex-direction: column; gap: 12px; padding: 16px 16px 18px; box-shadow: 0 -12px 48px rgba(0,0,0,0.22); }
+.ayra-root.is-mobile .ayra-sheet { position: fixed; left: 0; right: 0; bottom: 0; border-left: none; border-right: none; border-bottom: none;
+  max-height: 88vh; overflow-y: auto; padding-bottom: max(18px, env(safe-area-inset-bottom)); }
+.ayra-root.is-desktop .ayra-sheet { max-height: 82vh; overflow-y: auto; box-shadow: 0 24px 60px rgba(0,0,0,0.28); }
+.ayra-grip { display: none; }
+.ayra-root.is-mobile .ayra-grip { display: block; width: 42px; height: 4px; background: var(--line); margin: 0 auto 2px; }
+.ayra-icon { background: none; border: none; cursor: pointer; color: var(--ink); opacity: 0.7; padding: 2px; }
+.ayra-icon:hover { opacity: 1; }
+.ayra-close { position: absolute; top: 12px; right: 12px; z-index: 3; }
+
+/* ── Conscious orb ── */
+.ayra-orbwrap { position: relative; width: 100%; display: grid; place-items: center; padding: 8px 0 2px; }
+.ayra-orb-canvas { width: 172px; height: 172px; cursor: pointer; display: block; }
+.ayra-orb-css { display: none; width: 128px; height: 128px; border-radius: 50%; cursor: pointer;
+  background: radial-gradient(circle at 35% 30%, #f6f3ee, #cfc9bf 45%, #b8a179 72%, #2c2925);
+  box-shadow: 0 0 44px 10px rgba(184,161,121,0.35); animation: ayra-breathe 4s ease-in-out infinite; }
+@keyframes ayra-breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.045); } }
+
+.ayra-status { text-align: center; font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); }
+.ayra-status.has-err { color: #b23b3b; text-transform: none; letter-spacing: 0; font-size: 13px; }
+
+/* ── Proof feed ── */
+.ayra-proof { display: flex; flex-direction: column; gap: 6px; align-items: center; }
+.ayra-proof-card { border: 1px solid var(--line); background: #fff; padding: 6px 12px; letter-spacing: 0.12em; }
+
+/* ── Captions ── */
+.ayra-captions { display: flex; flex-direction: column; gap: 6px; text-align: center; }
+.ayra-cap-you { font-size: 12px; color: var(--muted); font-style: italic; }
+.ayra-cap-ai { font-family: "Playfair Display", "DM Serif Display", serif; font-size: 17px; line-height: 1.4; }
+.ayra-w { display: inline; opacity: 0; animation: ayra-wordin 0.34s ease forwards; }
+@keyframes ayra-wordin { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+
+/* ── Product shelf (tap-to-buy) ── */
+.ayra-shelf { display: grid; grid-auto-flow: column; grid-auto-columns: 132px; gap: 12px; overflow-x: auto; padding-bottom: 6px; }
+.ayra-card { border: 1px solid var(--line); background: #fff; display: flex; flex-direction: column; transition: outline 0.2s, transform 0.2s; }
+.ayra-card.hl { outline: 2px solid var(--accent); outline-offset: 1px; transform: translateY(-2px); }
+.ayra-card-img { border: none; padding: 0; background: none; cursor: pointer; }
+.ayra-card-img img, .ayra-noimg { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; background: #efeae1; }
+.ayra-card-name { font-size: 12px; line-height: 1.3; padding: 8px 8px 2px; height: 2.6em; overflow: hidden; }
+.ayra-card-price { font-size: 12px; font-weight: 700; padding: 0 8px 8px; }
+.ayra-card-btn { margin: 0 8px 8px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; border: 1px solid var(--ink);
+  background: var(--ink); color: #fff; padding: 7px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; }
+.ayra-card-btn.is-added { background: var(--paper); color: var(--ink); }
+.ayra-card-btn:disabled { opacity: 0.6; }
+.ayra-sizes { display: flex; flex-wrap: wrap; gap: 4px; padding: 0 8px 8px; }
+.ayra-size { min-width: 30px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-size: 11px; padding: 5px 6px; cursor: pointer; }
+.ayra-size:hover { border-color: var(--ink); }
+.ayra-card-err { color: #b23b3b; font-size: 10px; padding: 0 8px 8px; }
+
+/* highlight for storefront cards during a walkthrough */
+.ayra-highlight { outline: 2px solid var(--accent, #b8a179) !important; outline-offset: 2px; }
+
+.ayra-spin { animation: ayra-spin 0.9s linear infinite; }
+@keyframes ayra-spin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .ayra-launcher.is-live .ayra-launcher-dot, .ayra-spin, .ayra-orb-css { animation: none; }
+  .ayra-w { opacity: 1; animation: none; }
+}

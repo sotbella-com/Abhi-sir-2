@@ -1259,8 +1259,8 @@ export const useUnifiedCartStore = create(
               //  toast.error(finalErrorData.detail || "Insufficient stock");
           } 
 
-          // const { itemCount } = get();
-          // const revertedCount = Math.max(0, itemCount - quantity);
+          const { itemCount } = get();
+          const revertedCount = Math.max(0, itemCount - quantity);
           set((state) => ({ ...state, itemCount: revertedCount }));
           // get().forceUpdate();
 

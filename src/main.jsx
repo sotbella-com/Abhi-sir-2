@@ -45,6 +45,9 @@ import NavSearch from "./pages/home/Search/NavSearch.jsx";
 import Login from "./pages/CartLogin/Login.jsx";
 import ScrollToTop from "./components/atoms/ScrollToTop.js";
 import { AuthProvider } from "./context/AuthContext.jsx";
+import AyraShopper from "./ayra/AyraShopper.jsx";
+import AyraLanding from "./ayra/AyraLanding.jsx";
+import ShowroomLanding from "./ayra/ShowroomLanding.jsx";
 import ProductDetails from "./pages/ProductDetails/index.jsx";
 import ProductImageGallery from "./pages/ProductDetails/components/productImageGallery.jsx";
 import MyWishList from "./pages/WishList/index.jsx";
@@ -126,6 +129,12 @@ createRoot(document.getElementById("root")).render(
             <FooterProvider>
               <HiddenUserData />
               <Routes>
+                {/* AYRA ad-landing — chrome-free, outside MainLayout. The global
+                    <AyraShopper/> auto-opens its orb here and styles for the ad. */}
+                <Route path="/ayra" element={<AyraLanding />} />
+                {/* AYRA Showroom — persona test surface; activates showroom mode
+                    then drops into the real store (chrome-free, outside MainLayout). */}
+                <Route path="/showroom" element={<ShowroomLanding />} />
                 <Route element={<MainLayout />}>
                   {/* Public Pages */}
                   <Route path="/" element={<App />} />
@@ -182,6 +191,8 @@ createRoot(document.getElementById("root")).render(
                   </Route>
                 </Route>
               </Routes>
+              {/* AYRA native voice shopper — floating, site-wide (sandbox-gated) */}
+              <AyraShopper />
             </FooterProvider>
           </AuthProvider>
         </BrowserRouter>
