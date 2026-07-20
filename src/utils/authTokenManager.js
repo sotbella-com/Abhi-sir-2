@@ -17,6 +17,19 @@ const SFCC_BASE_URL =
     ? '/sfcc' // Vite dev proxy
     : 'https://dyp4l3dm.api.commercecloud.salesforce.com'); // direct host
 
+// SECURITY: if the SLAS client secret is NOT baked into the bundle (production),
+// mint tokens via the server-side /sfcc-token endpoint (server.cjs injects the
+// secret) so it never ships to the browser. When the secret IS present (staging),
+// keep the original in-browser Basic-auth flow — fully backward-compatible.
+const SFCC_SECRET_IN_BUNDLE = !!import.meta.env.VITE_SFCC_CLIENT_SECRET;
+const SFCC_ORG = import.meta.env.VITE_SFCC_ORG_ID;
+const _tokenUrl = (org) => SFCC_SECRET_IN_BUNDLE
+  ? `${SFCC_BASE_URL}/shopper/auth/v1/organizations/${org}/oauth2/token`
+  : '/sfcc-token';
+const _basicHeader = () => SFCC_SECRET_IN_BUNDLE
+  ? { Authorization: `Basic ${btoa(`${import.meta.env.VITE_SFCC_CLIENT_ID}:${import.meta.env.VITE_SFCC_CLIENT_SECRET}`)}` }
+  : {};
+
 const AUTH_TOKEN_KEY = 'auth_token';
 const TOKEN_REFRESH_THRESHOLD = 300; // 5 minutes before expiry
 
@@ -95,16 +108,12 @@ class AuthTokenManager {
       // Get dynamic site ID based on geolocation
       const siteId =  import.meta.env.VITE_SFCC_SITE_ID;
 
-      const response = await fetch(`${SFCC_BASE_URL}/shopper/auth/v1/organizations/${import.meta.env.VITE_SFCC_ORG_ID}/oauth2/token`, {
+      const _guestBody = { grant_type: 'client_credentials', channel_id: siteId };
+      if (!SFCC_SECRET_IN_BUNDLE) _guestBody.org = SFCC_ORG; // server needs org for the URL
+      const response = await fetch(_tokenUrl(import.meta.env.VITE_SFCC_ORG_ID), {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Authorization': `Basic ${btoa(`${import.meta.env.VITE_SFCC_CLIENT_ID}:${import.meta.env.VITE_SFCC_CLIENT_SECRET}`)}`
-        },
-        body: new URLSearchParams({
-          grant_type: 'client_credentials',
-          channel_id: siteId // Required by SFCC API
-        })
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded', ..._basicHeader() },
+        body: new URLSearchParams(_guestBody)
       });
 
       if (!response.ok) {
@@ -185,16 +194,12 @@ class AuthTokenManager {
       }
 
 
-      const response = await fetch(`${SFCC_BASE_URL}/shopper/auth/v1/organizations/${import.meta.env.VITE_SFCC_ORG_ID}/oauth2/token`, {
+      const _refreshBody = { grant_type: 'refresh_token', refresh_token: currentToken.refresh_token };
+      if (!SFCC_SECRET_IN_BUNDLE) _refreshBody.org = SFCC_ORG;
+      const response = await fetch(_tokenUrl(import.meta.env.VITE_SFCC_ORG_ID), {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Authorization': `Basic ${btoa(`${import.meta.env.VITE_SFCC_CLIENT_ID}:${import.meta.env.VITE_SFCC_CLIENT_SECRET}`)}`
-        },
-        body: new URLSearchParams({
-          grant_type: 'refresh_token',
-          refresh_token: currentToken.refresh_token
-        })
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded', ..._basicHeader() },
+        body: new URLSearchParams(_refreshBody)
       });
 
       if (!response.ok) {

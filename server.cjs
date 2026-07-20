@@ -14,9 +14,37 @@ const { createProxyMiddleware } = require("http-proxy-middleware");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const SFCC = "https://dyp4l3dm.api.commercecloud.salesforce.com";
+const SFCC = process.env.SFCC_HOST || "https://dyp4l3dm.api.commercecloud.salesforce.com";
 const TAILOREDD = "https://cdn.tailoredd.com";
 const spoofOrigin = (proxyReq) => proxyReq.setHeader("Origin", "https://sotbella.com/");
+
+// ── SFCC SLAS token mint, SERVER-SIDE (keeps the client secret OUT of the browser
+// bundle for production). The browser POSTs grant_type/channel_id/refresh_token to
+// /sfcc-token; the server injects Basic auth from SFCC_CLIENT_ID + SFCC_CLIENT_SECRET
+// (server env only). If those aren't set (e.g. staging using the old in-bundle path),
+// it falls back to whatever Authorization header the browser sent — fully backward-compatible.
+app.post("/sfcc-token", express.urlencoded({ extended: false }), async (req, res) => {
+  try {
+    const org = req.body.org || process.env.SFCC_ORG_ID;
+    if (!org) return res.status(400).json({ error: "missing org" });
+    const params = new URLSearchParams();
+    for (const k of ["grant_type", "channel_id", "refresh_token", "code", "code_verifier",
+                     "redirect_uri", "usid", "hint", "client_id"]) {
+      if (req.body[k]) params.set(k, req.body[k]);
+    }
+    const headers = { "Content-Type": "application/x-www-form-urlencoded" };
+    const cid = process.env.SFCC_CLIENT_ID, csec = process.env.SFCC_CLIENT_SECRET;
+    if (cid && csec) headers.Authorization = "Basic " + Buffer.from(`${cid}:${csec}`).toString("base64");
+    else if (req.headers.authorization) headers.Authorization = req.headers.authorization; // staging fallback
+    const r = await fetch(`${SFCC}/shopper/auth/v1/organizations/${org}/oauth2/token`, {
+      method: "POST", headers, body: params,
+    });
+    const text = await r.text();
+    res.status(r.status).type("application/json").send(text);
+  } catch (e) {
+    res.status(502).json({ error: "sfcc-token proxy failed", detail: String(e).slice(0, 200) });
+  }
+});
 
 // /sfcc/* -> SFCC SCAPI (strip /sfcc). Same-origin from the browser => no CORS.
 app.use(
