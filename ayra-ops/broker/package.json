@@ -1,0 +1,13 @@
+{
+  "name": "ayra-shopper-sandbox",
+  "version": "1.0.0",
+  "description": "Isolated signed-URL broker for the AYRA sandbox shopper agent (no production ties).",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
