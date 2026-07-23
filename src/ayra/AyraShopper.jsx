@@ -169,22 +169,6 @@ function AyraShopperInner() {
     } catch {}
   }, [applyDNA]);
 
-  // Language — on-screen English / हिंदी choice. Hindi runs on its OWN agent
-  // (separate ElevenLabs agent, language=hi); the broker routes by ?lang=.
-  // OPS-ONLY: the picker renders only on sandbox/ops builds (VITE_AYRA_SANDBOX).
-  // Public/production shoppers never see it — they get the English agent as before.
-  const LANG_UI = String(import.meta.env.VITE_AYRA_SANDBOX || "").toLowerCase() === "true";
-  const [lang, setLangState] = useState(() => {
-    if (!LANG_UI) return "en";
-    try { return localStorage.getItem("ayra_lang") || ""; } catch { return ""; }
-  });
-  const [showLang, setShowLang] = useState(false);
-  const langRef = useRef(lang);
-  const setLang = useCallback((l) => {
-    langRef.current = l; setLangState(l);
-    try { localStorage.setItem("ayra_lang", l); } catch {}
-  }, []);
-
   const conversation = useConversation({
     clientTools,
     onConnect: () => setError(null),
@@ -224,9 +208,8 @@ function AyraShopperInner() {
     orbRef.current?.setState?.(s);
   }, [connected, connecting, speaking, thinking]);
 
-  const start = useCallback(async (langSel) => {
+  const start = useCallback(async () => {
     setError(null);
-    const L = (typeof langSel === "string" && langSel) || langRef.current || "en";
     if (!SESSION_URL) { setError("AYRA isn't configured yet."); return; }
     // Browser-level NOISE handling: suppression + echo cancel + auto-gain, so
     // AYRA hears her clearly in cafés/streets/parties.
@@ -236,32 +219,23 @@ function AyraShopperInner() {
       });
     } catch { setError("Enable mic access and tap the orb again."); return; }
     try {
-      const sessionUrl = SESSION_URL + (SESSION_URL.includes("?") ? "&" : "?") + "lang=" + L;
-      const res = await fetch(sessionUrl, { method: "GET" });
+      const res = await fetch(SESSION_URL, { method: "GET" });
       const data = await res.json();
       const signedUrl = data.signedUrl || data.signed_url || data.url;
       if (!signedUrl) throw new Error("couldn't reach AYRA — try again in a moment");
       const prof = profileRef.current || {};
       const occasion = (launchRef.current?.occasion || "").toString().trim();
-      const hi = L === "hi";
       const occasionOpener = occasion
-        ? (hi
-            ? `नमस्ते${prof.name ? " " + prof.name : ""} — चलिए आपका ${occasion} look तैयार करते हैं।`
-            : prof.name
-              ? `Welcome back, ${prof.name} — let's find your ${occasion} look.`
-              : `Hi, I'm AYRA — let's style you for ${occasion}. Shall I show you the edit?`)
-        : null;
-      const fallbackOpener = hi
         ? (prof.name
-            ? `नमस्ते ${prof.name} — मैं AYRA हूँ। आज किस social moment के लिए तैयार होना है?`
-            : "नमस्ते, मैं AYRA हूँ — आपकी Sotbella stylist। बताइए, किस occasion के लिए dress करना है?")
-        : (prof.name
-            ? `Welcome back, ${prof.name} — I've been thinking about what you'll love next.`
-            : "Hi, I'm AYRA — your Sotbella stylist. What's the social moment we're dressing for?");
+            ? `Welcome back, ${prof.name} — let's find your ${occasion} look.`
+            : `Hi, I'm AYRA — let's style you for ${occasion}. Shall I show you the edit?`)
+        : null;
       await conversation.startSession({
         signedUrl, connectionType: "websocket",
         dynamicVariables: {
-          opening_line: dna?.opening_line || occasionOpener || fallbackOpener,
+          opening_line: dna?.opening_line || occasionOpener || (prof.name
+            ? `Welcome back, ${prof.name} — I've been thinking about what you'll love next.`
+            : "Hi, I'm AYRA — your Sotbella stylist. What's the social moment we're dressing for?"),
           style_archetype: dna?.style_name || prof.style_name || "",
           energy: dna?.energy || dna?.vibe || "",
           palette: (dna?.palette_names || prof.palette_names || []).join(", "),
@@ -281,11 +255,7 @@ function AyraShopperInner() {
 
   const toggle = useCallback(() => {
     if (connecting) return;
-    if (connected) { stop(); return; }
-    // First tap with no chosen language → show the on-screen EN/हिंदी choice
-    // (ops/sandbox builds only; public builds go straight to English).
-    if (LANG_UI && !langRef.current) { setShowLang(true); return; }
-    start();
+    if (connected) stop(); else start();
   }, [connected, connecting, start, stop]);
 
   useEffect(() => () => { conversation.endSession?.().catch(() => {}); clearTimeout(thinkTimer.current); }, []); // eslint-disable-line
@@ -394,44 +364,6 @@ function AyraShopperInner() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Language choice — English / हिंदी (Hindi = its own agent). OPS/sandbox builds only. */}
-      <AnimatePresence>
-        {LANG_UI && showLang && !connected && (
-          <motion.div
-            initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 8 }}
-            style={{ position: "fixed", right: 22, bottom: 108, zIndex: 2147483000,
-                     background: "rgba(14,14,18,.94)", backdropFilter: "blur(12px)",
-                     border: "1px solid rgba(232,193,90,.4)", borderRadius: 16,
-                     padding: "14px 16px", color: "#ececf1", fontSize: 13.5,
-                     boxShadow: "0 10px 36px rgba(0,0,0,.45)", maxWidth: 250 }}>
-            <div style={{ opacity: .8, marginBottom: 10 }}>AYRA speaks · AYRA बोलती है</div>
-            <div style={{ display: "flex", gap: 9 }}>
-              {[["en", "English"], ["hi", "हिंदी"]].map(([code, label]) => (
-                <button key={code}
-                  onClick={() => { setLang(code); setShowLang(false); start(code); }}
-                  style={{ flex: 1, background: code === (lang || "en") ? "#e8c15a" : "rgba(255,255,255,.07)",
-                           color: code === (lang || "en") ? "#171204" : "#ececf1",
-                           border: "1px solid rgba(232,193,90,.45)", borderRadius: 10,
-                           padding: "10px 14px", fontSize: 14, fontWeight: 650, cursor: "pointer" }}>
-                  {label}
-                </button>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Tiny language chip near the orb — switch anytime while idle (ops builds only). */}
-      {LANG_UI && !connected && !connecting && lang && !showLang && (
-        <button onClick={() => setShowLang(true)} aria-label="Change AYRA language"
-          style={{ position: "fixed", right: 30, bottom: 96, zIndex: 2147483000,
-                   background: "rgba(14,14,18,.85)", color: "#e8c15a",
-                   border: "1px solid rgba(232,193,90,.4)", borderRadius: 999,
-                   padding: "3px 10px", fontSize: 11, fontWeight: 700, cursor: "pointer" }}>
-          {lang === "hi" ? "हिं" : "EN"}
-        </button>
-      )}
 
       {/* The floating conscious orb — AYRA, everywhere. Tap to talk / tap to end. */}
       <button className={`ayra-orb-fab ${connected ? "is-live" : ""} ${connecting ? "is-connecting" : ""}`}
