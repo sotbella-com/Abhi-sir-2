@@ -21,6 +21,9 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 const API_KEY = process.env.ELEVENLABS_API_KEY || "";
 const AGENT_ID = process.env.AYRA_SANDBOX_AGENT_ID || "";
+// Hindi AYRA — a separate agent (full tool clone, language=hi). Agent ids are
+// not secrets (public in signed-url flow); env can still override.
+const AGENT_ID_HI = process.env.AYRA_SANDBOX_AGENT_ID_HI || "agent_7001ky7tpg5xf6c88x5xrdbrbwkg";
 const ALLOWED = (process.env.ALLOWED_ORIGINS || "")
   .split(",")
   .map((s) => s.trim())
@@ -73,13 +76,16 @@ app.post("/ayra/journey", async (req, res) => {
   return res.status(204).end();
 });
 
-app.get("/session", async (_req, res) => {
-  if (!API_KEY || !AGENT_ID) {
+app.get("/session", async (req, res) => {
+  // ?lang=hi routes to the separate Hindi agent; anything else = English agent.
+  const lang = String(req.query?.lang || "en").toLowerCase();
+  const agentId = lang === "hi" && AGENT_ID_HI ? AGENT_ID_HI : AGENT_ID;
+  if (!API_KEY || !agentId) {
     return res.status(500).json({ error: "broker not configured (ELEVENLABS_API_KEY / AYRA_SANDBOX_AGENT_ID)" });
   }
   try {
     const r = await fetch(
-      `https://api.elevenlabs.io/v1/convai/conversation/get_signed_url?agent_id=${encodeURIComponent(AGENT_ID)}`,
+      `https://api.elevenlabs.io/v1/convai/conversation/get_signed_url?agent_id=${encodeURIComponent(agentId)}`,
       { headers: { "xi-api-key": API_KEY } }
     );
     const data = await r.json();
