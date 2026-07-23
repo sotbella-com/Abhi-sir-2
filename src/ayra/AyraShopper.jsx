@@ -171,7 +171,11 @@ function AyraShopperInner() {
 
   // Language — on-screen English / हिंदी choice. Hindi runs on its OWN agent
   // (separate ElevenLabs agent, language=hi); the broker routes by ?lang=.
+  // OPS-ONLY: the picker renders only on sandbox/ops builds (VITE_AYRA_SANDBOX).
+  // Public/production shoppers never see it — they get the English agent as before.
+  const LANG_UI = String(import.meta.env.VITE_AYRA_SANDBOX || "").toLowerCase() === "true";
   const [lang, setLangState] = useState(() => {
+    if (!LANG_UI) return "en";
     try { return localStorage.getItem("ayra_lang") || ""; } catch { return ""; }
   });
   const [showLang, setShowLang] = useState(false);
@@ -278,8 +282,9 @@ function AyraShopperInner() {
   const toggle = useCallback(() => {
     if (connecting) return;
     if (connected) { stop(); return; }
-    // First tap with no chosen language → show the on-screen EN/हिंदी choice.
-    if (!langRef.current) { setShowLang(true); return; }
+    // First tap with no chosen language → show the on-screen EN/हिंदी choice
+    // (ops/sandbox builds only; public builds go straight to English).
+    if (LANG_UI && !langRef.current) { setShowLang(true); return; }
     start();
   }, [connected, connecting, start, stop]);
 
@@ -390,9 +395,9 @@ function AyraShopperInner() {
         )}
       </AnimatePresence>
 
-      {/* Language choice — English / हिंदी (Hindi = its own agent). */}
+      {/* Language choice — English / हिंदी (Hindi = its own agent). OPS/sandbox builds only. */}
       <AnimatePresence>
-        {showLang && !connected && (
+        {LANG_UI && showLang && !connected && (
           <motion.div
             initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 8 }}
             style={{ position: "fixed", right: 22, bottom: 108, zIndex: 2147483000,
@@ -417,8 +422,8 @@ function AyraShopperInner() {
         )}
       </AnimatePresence>
 
-      {/* Tiny language chip near the orb — switch anytime while idle. */}
-      {!connected && !connecting && lang && !showLang && (
+      {/* Tiny language chip near the orb — switch anytime while idle (ops builds only). */}
+      {LANG_UI && !connected && !connecting && lang && !showLang && (
         <button onClick={() => setShowLang(true)} aria-label="Change AYRA language"
           style={{ position: "fixed", right: 30, bottom: 96, zIndex: 2147483000,
                    background: "rgba(14,14,18,.85)", color: "#e8c15a",
